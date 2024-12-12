@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title>Anagram checker app</title>
+        <style>
+            *{font-size:40px;}
+            body{ background-color:blanchedalmond};
+            </style>
+    </head>
+       <body>
+        <center>
+            <h1>Anagram checker app</h1>
+            <form onsubmit="check()">
+                <input type="text"  id="string"  placeholder="enter first string" />
+                <br/><br/>
+                <input type="text"  id="string"  placeholder="enter second string" />
+                <br/><br/>
+                <input type="submit" value="check" />
+                  </form>
+                       <h2 id="msg" /> 
+                <script>
+                    function check()
+                    {
+                        event.preventDefault();
+                        let string= document.getElementById("string");
+                        let msg= document.getElementById("msg");
+
+                        if(string.value==="")
+                    {
+                        alert("string is empty");
+                        msg.innerHTML="";
+                        string.focus();
+                        return;
+                    }
+                    org_string=string.value;
+                    sort_string=org_string.split("").sort().join("");
+                    msg.innerHTML= sort_string;
+                    if(org_string=== sort_string)
+                    {
+                        msg.innerHTML="yes it is a anagram";
+                    }
+                    else
+                    {
+                        msg.innerHTML="nope it is not a anagram";
+                    }
+                    }
+                    
+                </script>                      
+                    </center>
+       </body>
+    </html>
